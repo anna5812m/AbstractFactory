@@ -36,7 +36,9 @@ public class ArrowAggregation extends AbstractProductArrow {
         gc.setLineDashes(0.);
         gc.moveTo(startX, startY);
         gc.lineTo(endX, endY);
-        gc.stroke();// соединить точки
+        gc.strokeLine();// Проблема связана с использованием stroke() см.https://docs.oracle.com/javase/8/javafx/api/javafx/scene/canvas/GraphicsContext.html
+        //его следует применять к области ограниченной от beginPath() до closePath() и подобным сложным контурам
+       
     }
 
     public void drawArrowend(GraphicsContext gc) {
