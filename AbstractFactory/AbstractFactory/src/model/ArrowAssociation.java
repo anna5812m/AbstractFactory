@@ -39,7 +39,7 @@ public class ArrowAssociation extends AbstractProductArrow {
         gc.setLineDashes(0.);
         gc.moveTo(startX, startY);
         gc.lineTo(endX, endY);
-        gc.stroke();// соединить точки
+        gc.strokeLine(startX, startY, endX, endY);// соединить точки
     }
 
     public void drawArrowend(GraphicsContext gc) {
@@ -54,9 +54,10 @@ public class ArrowAssociation extends AbstractProductArrow {
         double x2 = (1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * arrowHeadSize + endX;
         double y2 = (1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * arrowHeadSize + endY;
         gc.lineTo(x1, y1);
+        gc.strokeLine(endX, endY, x1, y1);
         gc.moveTo(x2, y2);
         gc.lineTo(endX, endY);
-        gc.stroke();
+        gc.strokeLine(endX, endY, x2, y2);
     }
     public void setStartPoint(double startX, double startY) {
         this.startX = startX;

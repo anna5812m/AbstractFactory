@@ -36,7 +36,7 @@ public class ArrowAggregation extends AbstractProductArrow {
         gc.setLineDashes(0.);
         gc.moveTo(startX, startY);
         gc.lineTo(endX, endY);
-        gc.stroke();// соединить точки
+        gc.strokeLine(startX, startY, endX, endY);// соединить точки
     }
 
     public void drawArrowend(GraphicsContext gc) {
